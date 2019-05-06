@@ -1,0 +1,33 @@
+{
+    "name": "zishuo/think-cron",
+    "description": "thinkphp5.1 计划任务",
+    "type": "think-extend",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "zishuo",
+            "email": "i@shabi.in"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "topthink/think-installer": "^2.0",
+        "mtdowling/cron-expression": "^1.2"
+    },
+    "require-dev": {
+        "topthink/framework": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "zishuo\\cron\\": "src/cron"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "extra": {
+        "think-config": {
+            "xcron": "src/config.php"
+        }
+    }
+}
