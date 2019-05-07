@@ -20,6 +20,6 @@ if (!function_exists('add_xcron')) {
      */
     function add_xcron($title, $task, $data = [], $exptime=null)
     {
-        return (new MySql)->add($title, $task, $data, $exptime);
+        return (new MySql)->add_xcron($title, $task, $data, $exptime);
     }
 }

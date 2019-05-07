@@ -51,7 +51,7 @@ sql;
         }
     }
     
-    public function add_crontab($title, $task, $data = [], $exptime=null)
+    public function add_xcron($title, $task, $data = [], $exptime=null)
     {
         return Db::name($this->config['table'])->insert([
             'title'     => $title,
