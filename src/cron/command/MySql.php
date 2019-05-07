@@ -33,7 +33,7 @@ sql;
     protected function configure()
     {
         $this->setName('xcron:install')->setDescription('Crontab Data table initialization');
-        $this->config = Config::get('cron.');
+        $this->config = Config::get('xcron.');
     }
 
     protected function execute(Input $input, Output $output)

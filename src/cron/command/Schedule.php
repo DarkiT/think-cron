@@ -69,7 +69,7 @@ class Schedule extends Command
             return false;
         }else{
             if ($pid=$this->getCronStatus()) {
-                $this->output->info("Crontab daemon {$pid} created successfully!");
+                $this->output->info("Crontab daemon {$pid} is runing.");
                 $this->stop();
             }
             $this->output->writeln("<info>Crontab is started successfully</info>");
