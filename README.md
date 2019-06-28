@@ -64,6 +64,7 @@ return [
 ```
 CREATE TABLE `think_cron` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '任务状态',
   `count` int(11) NOT NULL DEFAULT '0' COMMENT '执行次数',
   `title` char(50) DEFAULT NULL COMMENT '任务名称',
