@@ -84,7 +84,7 @@ class Run extends Command
     }
     
     protected function tasksSql($time=60){
-        return Db::name($this->config['table'])->cache(true,$time)->where('status',1)->column('title,exptime,task,data','id');
+        return Db::name($this->config['table'])->cache(true,$time)->where('status',1)->order('sort', 'asc')->column('title,exptime,task,data','id');
     }
     /**
      * @param $task Task

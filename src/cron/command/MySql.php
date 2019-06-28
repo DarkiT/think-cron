@@ -15,8 +15,9 @@ class MySql extends Command
     protected $sql = <<<sql
 CREATE TABLE `think_cron` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` int(1) NOT NULL DEFAULT '1' COMMENT '任务状态',
+  `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `count` int(11) NOT NULL DEFAULT '0' COMMENT '执行次数',
+  `status` int(1) NOT NULL DEFAULT '1' COMMENT '任务状态',
   `title` char(50) DEFAULT NULL COMMENT '任务名称',
   `exptime` char(200) NOT NULL DEFAULT '* * * * *' COMMENT '任务周期',
   `task` varchar(500) DEFAULT NULL COMMENT '任务命令',
