@@ -54,7 +54,7 @@ sql;
     
     public function add_xcron($title, $task, $data = [], $exptime=null)
     {
-        return Db::name($this->config['table'])->insert([
+        return Db::table($this->config['table'])->insert([
             'title'     => $title,
             'task'      => $task,
             'data'   => json_encode($data, JSON_UNESCAPED_UNICODE),
