@@ -18,8 +18,8 @@ if (!function_exists('add_xcron')) {
      * @param string $exptime
      * @return bool
      */
-    function add_xcron($title, $task, $data = [], $exptime=null)
+    function add_xcron($title, $task, $data = [], $exp_time=null)
     {
-        return (new MySql)->add_xcron($title, $task, $data, $exptime);
+        return (new MySql)->add_xcron($title, $task, $data, $exp_time);
     }
 }
