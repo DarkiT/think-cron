@@ -14,11 +14,11 @@ use zishuo\cron\Task;
 class Run extends Command
 {
     protected $type;
-    
+
     protected $config;
-    
+
     protected $startedAt;
-    
+
     protected $taskData = [];
 
     protected function configure()
@@ -53,10 +53,10 @@ class Run extends Command
             return false;
         }
         foreach ($tasks as $k=>$vo) {
-            
+
             $taskClass = $vo['task'];
             $exptime = empty($vo['exptime'])?false:$vo['exptime'];
-            
+
             $this->taskData['id'] = $k;
             if (is_subclass_of($taskClass, Task::class)) {
                 /** @var Task $task */
@@ -82,9 +82,9 @@ class Run extends Command
             }
         }
     }
-    
+
     protected function tasksSql($time=60){
-        return Db::name($this->config['table'])->cache(true,$time)->where('status',1)->order('sort', 'asc')->column('title,exptime,task,data','id');
+        return Db::table($this->config['table'])->cache(true,$time)->where('status',1)->order('sort', 'asc')->column('title,exp_time,task,data','id');
     }
     /**
      * @param $task Task
@@ -120,9 +120,7 @@ class Run extends Command
         $this->taskData['last_time'] = $this->startedAt;
         $this->taskData['count'] = Db::raw('count+1');
         if($this->type == 'mysql'){
-            Db::name($this->config['table'])->update($this->taskData);
-        }else{
-            Cache::set('xcron-'.$this->taskData['id'], $this->taskData, 0);
+            Db::table($this->config['table'])->update($this->taskData);
         }
     }
 }
